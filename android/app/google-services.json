@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "671459813254",
+    "project_id": "singanote-762e5",
+    "storage_bucket": "singanote-762e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671459813254:android:b1b0af3ef7483dc36a6e07",
+        "android_client_info": {
+          "package_name": "com.example.singanote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671459813254-e26pg50958q3pknce9fvgs9cunp54j0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.singanote",
+            "certificate_hash": "d0e38f31de5d77b75705452ef38b9fb7d2d3e595"
+          }
+        },
+        {
+          "client_id": "671459813254-054e6vnd8hgmerdr4n7vgb108vg06stn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP968KN048tXoHTEELamQvi9veDli1jDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671459813254-054e6vnd8hgmerdr4n7vgb108vg06stn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
