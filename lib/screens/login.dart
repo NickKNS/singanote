@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:provider/provider.dart';
 import 'package:singanote/blocs/auth_bloc.dart';
+import 'package:singanote/main.dart';
 import 'package:singanote/screens/home.dart';
+// import 'package:singanote/screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (project != null) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
+            builder: (context) => const Singa(),
           ),
         );
       }
