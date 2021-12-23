@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new
+
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,8 +8,6 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:provider/provider.dart';
 import 'package:singanote/blocs/auth_bloc.dart';
 import 'package:singanote/main.dart';
-import 'package:singanote/screens/home.dart';
-// import 'package:singanote/screens/home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -45,42 +45,49 @@ class _LoginScreenState extends State<LoginScreen> {
     final authBloc = Provider.of<AuthBloc>(context);
 
     return Scaffold(
-        backgroundColor: Colors.orange,
-        appBar: AppBar(
-          title: const Text('Sign in with Google'),
-        ),
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 90),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                maxRadius: 100,
-                backgroundImage: NetworkImage(
-                    'https://as1.ftcdn.net/v2/jpg/04/65/47/10/500_F_465471053_Y7IDWgocxAd4WYSKD8GmnwoYGhw2BYCU.jpg'),
-              ),
-
-              const SizedBox(
-                height: 50.0,
-              ),
-
-              const Text('SINGANOTE',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                  )),
-              // Image.network(
-              //     'https://www.tv360entertainment.com/wp-content/uploads/2019/05/Logo-dpu.png',
-              //     width: 200),
-              const SizedBox(
-                height: 50.0,
-              ),
-              SignInButton(
-                Buttons.Google,
-                text: 'Sign in with Google',
-                onPressed: () => authBloc.loginGoogle(),
-              ),
-            ],
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/10.jpeg'), fit: BoxFit.cover)),
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 90),
+      
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 150,
           ),
-        ));
+          ClipRRect(
+            borderRadius: new BorderRadius.circular(45),
+            child: const Image(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/images/1.png'),
+              width: 200,
+              height: 200,
+            ),
+          ),
+
+          // const SizedBox(
+          //   height: 50.0,
+          // ),
+
+        //  Text('SINGANOTE',
+        //       style:
+        //        GoogleFonts.leckerliOne(fontSize: 35,color:Colors.brown[200]),
+        //       ),
+          // Image.network(
+          //     'https://www.tv360entertainment.com/wp-content/uploads/2019/05/Logo-dpu.png',
+          //     width: 200),
+          const SizedBox(
+            height: 50.0,
+          ),
+          SignInButton(
+            Buttons.Google,
+            text: 'Sign in with Google',
+            onPressed: () => authBloc.loginGoogle(),
+          ),
+        ],
+      ),
+    ));
   }
 }

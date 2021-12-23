@@ -7,6 +7,7 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:provider/provider.dart';
 import 'package:singanote/blocs/auth_bloc.dart';
 import 'package:singanote/screens/login.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -44,8 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
     final authBloc = Provider.of<AuthBloc>(context);
 
     return Scaffold(
-      backgroundColor: Colors.orange,
-      body: Center(
+      appBar:
+          AppBar(title: const Text("Profile"),
+          
+           backgroundColor: Colors.grey[300]),
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+            image: AssetImage('assets/images/dqwd.png'), fit: BoxFit.cover)),
+        padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 90),
         child: StreamBuilder<User?>(
             stream: authBloc.currentUser,
             builder: (context, snapshot) {
@@ -54,14 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Student',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      )),
+                   Text('Profile',
+                      style:GoogleFonts.montserrat(fontSize: 30),),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Text(snapshot.data?.displayName ?? "",
-                      style: const TextStyle(fontSize: 20.0)),
+                      style: 
+               GoogleFonts.pattaya(fontSize: 22),),
+
                   Text(snapshot.data?.email ?? "",
-                      style: const TextStyle(fontSize: 20.0)),
+                     style: 
+               GoogleFonts.pattaya(fontSize: 20),),
                   const SizedBox(
                     height: 50.0,
                   ),

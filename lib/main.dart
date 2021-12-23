@@ -1,8 +1,12 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:singanote/background/background.dart';
 import 'package:singanote/blocs/auth_bloc.dart';
-import 'package:singanote/screens/login.dart';
+import 'package:singanote/menu_bar/NavBar.dart';
+// import 'package:audioplayers/audioplayers.dart';
 //import 'package:singanote/screens/login.dart';
 
 void main() async {
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const LoginScreen(),
+        home: const background(),
       ),
     );
   }
@@ -59,8 +63,8 @@ class _SingaState extends State<Singa> {
       imageNote: 'assets/images/key_g/Key_G.png',
       oc: ' ',
       showImages: 'assets/images/key_g/Key_G.png',
-      keynote: ' ',
-      sounote: ' ',
+      keynote: 'C',
+      sounote: 'assets/sounds/g3.wav ',
     ),
     const NoteItem(
       imageNote: 'assets/images/key_g/G_3.jpg',
@@ -212,11 +216,13 @@ class _SingaState extends State<Singa> {
                   child: InkWell(
                     onTap: () async {
                       setState(() {
-                        _selectedNoteItem = item;
+                         _selectedNoteItem = item ;
+                         //item.sounote 
                       });
                     },
                   ),
                 ),
+                
               ),
             )
           ],
@@ -227,9 +233,10 @@ class _SingaState extends State<Singa> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        drawer: const NvaBar(),
         appBar: AppBar(
           title: Text(
-            _selectedNoteItem?.imageNote ?? '',
+            _selectedNoteItem?.sounote ?? '',
           ),
           backgroundColor: Colors.brown[900],
         ),
@@ -264,6 +271,7 @@ class _SingaState extends State<Singa> {
                                 color: Colors.grey[600], fontSize: 150),
                           )
                         : const Text('-'),
+
                     
 
                     
@@ -290,3 +298,5 @@ class _SingaState extends State<Singa> {
     );
   }
 }
+
+
