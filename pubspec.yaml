@@ -43,8 +43,8 @@ dependencies:
   snapshot: ^0.2.3
   async: ^2.8.2
   path_provider: ^2.0.8
-  audioplayer: ^0.8.1
   google_fonts: ^2.1.1
+  assets_audio_player: ^3.0.3+9
   
   
   

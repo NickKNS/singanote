@@ -1,13 +1,13 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:singanote/background/background.dart';
 import 'package:singanote/blocs/auth_bloc.dart';
 import 'package:singanote/menu_bar/NavBar.dart';
-// import 'package:audioplayers/audioplayers.dart';
-//import 'package:singanote/screens/login.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -187,6 +187,8 @@ class _SingaState extends State<Singa> {
     ),
   ];
 
+  final assetsAudioPlayer = AssetsAudioPlayer();
+
   @override
   void initState() {
     super.initState();
@@ -216,13 +218,15 @@ class _SingaState extends State<Singa> {
                   child: InkWell(
                     onTap: () async {
                       setState(() {
-                         _selectedNoteItem = item ;
-                         //item.sounote 
+                        _selectedNoteItem = item;
+                        assetsAudioPlayer.open(
+                          Audio(item.sounote),
+                          pitch: 1,
+                        );
                       });
                     },
                   ),
                 ),
-                
               ),
             )
           ],
@@ -236,7 +240,7 @@ class _SingaState extends State<Singa> {
         drawer: const NvaBar(),
         appBar: AppBar(
           title: Text(
-            _selectedNoteItem?.sounote ?? '',
+            _selectedNoteItem?.keynote ?? '',
           ),
           backgroundColor: Colors.brown[900],
         ),
@@ -271,12 +275,6 @@ class _SingaState extends State<Singa> {
                                 color: Colors.grey[600], fontSize: 150),
                           )
                         : const Text('-'),
-
-                    
-
-                    
-                        
-
                   ],
                 ),
               ),
@@ -298,5 +296,3 @@ class _SingaState extends State<Singa> {
     );
   }
 }
-
-
